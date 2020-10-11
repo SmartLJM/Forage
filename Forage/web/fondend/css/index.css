@@ -1,0 +1,56 @@
+.shop-list-row{
+	background: #fff;
+	padding:10px;
+	padding-bottom: 10px;
+}
+
+.shop-list-row .divider{
+	background: #bfbfbf;
+}
+
+.card-shop{
+	padding:10px;
+}
+
+.card-shop:hover{
+	/*box-shadow: 5px 10px 10px #222;
+	opacity: 0.8;*/
+	background-color: #f5f5f5;
+}
+
+.card-shop .preview{
+	max-width:220px;
+	max-height:165px;
+}
+
+.card-shop img{
+	width:100%;
+}
+
+.card-shop .content{
+	min-height:45px;
+	margin-top:8px;
+}
+.card-shop .content .name{
+	font-size:18px;
+}
+.card-shop .content .location{
+	margin-top:2px;
+	font-size:14px;
+	color:#6d6d6d;
+}
+
+.add-more{
+	height:50px;
+	line-height: 50px;
+	text-align: center;
+	background: #fff;
+	font-size:16px;
+}
+
+.divider-rest{
+	height:1px;
+	width:100%;
+	border-bottom: 1px solid #cacaca;
+	padding-top: 15px;
+}

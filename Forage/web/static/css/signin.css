@@ -1,0 +1,100 @@
+body{
+	background: #fff;
+}
+
+.header, .main, .footer{
+	width:1000px;
+	margin:auto;
+}
+
+.header{
+}
+
+.header-divider{	
+	height:2px;
+	width:100%;
+	background-color:#f9b500;
+}
+
+
+.signin-section{
+	width:400px;
+}
+
+.copyright p{
+	color:#a7a7a7;
+}
+
+.sign-form{
+	width:600px;
+	margin-top: 40px;
+}
+
+.sign-form .form-g{
+	margin-top:10px;
+}
+
+.sign-form .input-tip{
+	display: inline-block;
+	width:90px;
+	height:30px;
+	text-align:right;
+}
+
+.sign-form .form-input{
+	margin-left: 10px;
+	padding-left: 10px;
+	height: 35px;
+	width: 250px;
+	/*box-shadow: none;*/
+	outline:none;
+	border:1px solid #999;
+}
+
+.sign-form .img-input{
+	line-height:35px;
+ 	display:inline;
+ }
+
+.sign-form .form-input:focus{
+/* 	box-shadow: 1px 1px 5px #f9b500; */
+	border:1px solid #f9b500;
+}
+
+
+.sign-comment{
+	margin-left: 6px;
+	font-size: 14px;
+	color:#999;
+}
+
+.sign-form .msg-input{
+	width:150px;
+}
+
+.msg-btn{
+	width: 96px;
+	height:35px;
+	text-align: center;
+	background: #f9c500;
+	border:1px solid #999;
+}
+
+.sign-btn{
+	margin-left: 104px;
+	margin-top: 10px;
+	width: 250px;
+	height: 35px;
+	border: 0;
+	background: #f9c500;
+	color:#6B450A;
+	font-weight: 600;
+}
+
+.signin-section a{
+	display: block;
+	width: 130px;
+	margin-left: 104px;
+	margin-top: 10px;
+	color:#FA9700;
+}

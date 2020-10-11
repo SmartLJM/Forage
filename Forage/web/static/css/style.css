@@ -1,0 +1,44 @@
+.jumbotron h1 {
+  font-size: 30px;
+}
+
+.header-bar-container.fixed {
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.header-bar-container {
+  background-color: #333;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 36px;
+  padding:0;
+  z-index: 999;
+  border-radius:0;
+}
+  .header-bar-container .navbar {
+  margin-bottom:0;
+  }
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: #333;
+  color: #fff;
+}
+
+.nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.main-container {
+  margin-top:50px;
+  min-height: 1500px;
+}
+
+
+.slim{
+	background: #fff;
+}

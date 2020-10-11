@@ -1,0 +1,138 @@
+.orders-wrap{
+}
+
+.order-detail{
+	width: 370px;
+	background:#fff;
+	padding:20px;
+	padding-bottom:10px;
+	zoom:1;
+}
+
+.order-detail>.order-header{
+	height:40px;
+	border-bottom:1px dashed #a0a0a0;
+	font-size:15px;
+	font-weight:700;
+}
+
+.item-list{
+	display:block;
+}
+
+.item-list li{
+	height:48px;
+	line-height:40px;
+	border-bottom:1px dashed #a0a0a0;
+
+}
+
+.order-cost{
+	height:60px;
+	width:100%;
+	line-height:60px;
+	font-size:20px;
+	font-weight:800;
+}
+
+.address-area{
+	min-height: 200px;
+	padding-bottom: 50px;
+	margin-left: 370px;
+	padding:20px;
+	background:#fff;
+	border-left: 15px solid #f5f5f5;
+}
+
+.address-header{
+	font-size: 18px;
+	height: 40px;
+}
+
+.address-header .tag-right{
+	font-size: 14px;
+	color:#7d7d7d;
+}
+
+.address{
+	margin-bottom: 10px;
+	padding:4px;
+	padding-left:15px;
+	background:#f5f5f5;
+	border:1px solid #fff;
+}
+
+.checked{	
+	border:1px solid #ffd161;
+}
+
+.address:hover{
+	border:1px solid #ffd161;
+}
+
+.address .base-info{
+	height:35px;
+	line-height:35px;
+	border-bottom:1px dashed #b1b1b1;
+}
+
+.address .location{
+	height:35px;
+	line-height:35px;
+}
+
+.address-bottom{	
+	margin-top:20px;
+	border-top:1px solid #d2d2d2;
+}
+
+.address-bottom a{
+	display: block;
+	width: 105px;
+	height: 30px;
+	margin-top:-2px;
+	margin-left: 225px;
+	border:1px solid #d2d2d2;
+	border-top:3px solid #fff;
+	text-align: center;
+	color:#808080;
+}
+
+.address-bottom a .glyphicon{
+	font-size:14px;
+	font-weight:lighter;
+	color:#808080;
+}
+
+.address-area .pay{
+	height: 40px;
+	margin-top: 20px;
+}
+
+.address-area .pay .cost{
+	font-size:30px;
+	color:#ff2d2d;
+}
+
+.address-area .pay button{
+	border:0;
+	width:80px;
+	height:30px;
+	background:#f9c23d;
+}
+
+.finishedtips{
+	height:300px;
+	width:100%;
+	padding-left:100px;
+	padding-top:80px;
+	background: #fff;
+	border:1px solid #d2d2d2;
+	font-size:24px;
+}
+.finishedtips a{
+	padding-bottom: 2px;
+	font-size: 16px;
+	color:#f9c23d;
+	border-bottom: 1px solid #f9c23d;
+}

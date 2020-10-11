@@ -1,0 +1,300 @@
+
+
+/*Ã¥â€¢â€ Ã¥Â®Â¶Ã¦ÂÂÃ¨Â¿Â°*/
+.shop-descript{
+	height: 110px;
+	padding:10px;
+	padding-left:20px;
+	background: #fff;
+}
+.shop-img{
+
+}
+
+.shop-detial{
+	margin-left:10px;
+}
+
+.shop-detial .shop-name{
+	font-size:18px;
+	font-weight:500;
+}
+
+/*Ã©Â£Å¸Ã¥â€œÂ*/
+.foods-view{
+	width:735px;
+}
+
+/*Ã¨ÂÅ“Ã¥Ââ€¢*/
+.foodsmenu{
+	margin-top:15px;
+	margin-bottom:15px;
+	padding:20px;
+	background: #fff;
+}
+
+.menu-header{
+	height:40px;
+	padding-bottom: 5px;
+	font-size:24px;
+}
+
+.menu-header span{
+	display:block;
+	width:70px;
+	border-bottom:2px solid #ea4900;
+	text-align:center;
+}
+
+.menu-list{	
+	min-height: 50px;
+}
+
+.menu-list ul{
+	margin:0;
+	padding:0;
+}
+
+.menu-list ul li{
+	float:left;
+	width: 130px;
+  height: 24px;
+  line-height: 24px;
+  margin-right: 5px;
+  margin-bottom: 4px;
+	list-style:none;
+}
+
+.menu-list .active{
+	color:#fd6c24;
+}
+
+/*Ã©Â£Å¸Ã¥â€œÂÃ¥Ë†â€”Ã¨Â¡Â¨*/
+
+.food-list-row{
+	background: #fff;
+	padding: 0;
+	margin: 0;
+}
+
+.food-list-row .divider{
+	background: #bfbfbf;
+}
+
+.card-food{
+	padding:20px;
+	border-right: 1px dashed #DDDDDD;
+  border-bottom: 1px dashed #DDDDDD;
+  /*border: 1px dashed #DDDDDD;*/
+}
+
+.card-food:hover{
+	background:#f9f0ea;
+}
+
+.card-food .preview{	
+	text-align:center;
+}
+
+.card-food img{
+	max-height:153px;
+	max-width:204px;
+}
+
+.card-food .content{
+	min-height:45px;
+	margin-top:8px;
+}
+.card-food .content .name{
+	font-size: 15px;
+	color:#313131;
+}
+.card-food .content .sellnum{
+	margin-top:2px;
+	font-size: 13px;
+	color: #898989;
+}
+
+.card-food .sell .price{
+	margin-top:2px;
+	font-size: 13px;
+	font-weight:800;
+	color: #ff2525;
+}
+
+.card-food .sell .operater>button{
+	width:23px;
+	height:25px;
+	margin-top:2px;
+	background: #ffd161;
+	border:0;
+	font-size:18px;
+}
+
+.card-food .sell .operater .num{
+	display:inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+	border-radius: 2px;
+	background:#ffd161;
+	text-align: center;
+	line-height: 20px;
+}
+
+/*Ã¨Â´Â­Ã§â€°Â©Ã¨Â½Â¦*/
+.cart{
+	position: fixed;
+	right: 129px;
+	bottom:0;
+	width:300px;
+	background: #fff;
+	/*border:1px solid #000;*/
+	border-top:4px solid #313131;
+	border-right:1px solid #DCDCDC;
+	box-shadow:0 -1px 9px #CCC;
+}
+
+.cart .title{
+	background:#f5f5f5;
+	height:24px;
+	line-height:24px;
+	font-size:14px;
+	color:#757575;
+}
+
+.cart .title-name{
+	width:150px;
+	margin-left:15px;
+}
+
+.cart .title-name a{
+	color:#f92424;
+}
+
+.cart .title-num{
+	width:70px;
+	text-align:center;
+}
+
+.cart .title-price{
+	width:50px;	
+	text-align:center;
+}
+
+.cart .foods{
+	margin:0;
+	padding:0;
+}
+
+.cart .food-item{
+	height: 32px;
+	/* line-height: 45px; */
+	list-style: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-left:15px;
+	/* padding-top:5px; */
+	/* padding-bottom:5px; */
+	font-size:15px;
+	border-bottom:1px solid #d8d8d8;
+}
+
+.cart .food-name{
+	width: 150px;
+}
+
+.cart .food-num{
+	width: 70px;
+	text-align:center;
+}
+
+.cart .food-price{
+	width:50px;
+	text-align:center;
+}
+
+.subadd{
+	/*height:20px;*/
+}
+.subadd input{
+	height:20px;
+	width:18px;
+	line-height:18px;
+	display: inline-block;
+	margin-top:-10px;
+	font-size:12px;
+	text-align:center;
+	border:1px solid #d8d8d8;
+}
+
+.subadd .cart-sub{
+	display: inline-block;
+	height:20px;
+	width:18px;
+	line-height:18px;
+	margin-right:-5px;
+	margin-bottom:-12px;
+	border:1px solid #d8d8d8;
+	font-size:12px;
+	text-align:center;
+	color:#a7a7a7;
+}
+
+.subadd .cart-add{
+	display: inline-block;
+	height:20px;
+	width:18px;
+	line-height:18px;
+	margin-left:-5px;
+	border:1px solid #d8d8d8;
+	font-size:12px;
+	text-align:center;
+	color:#a7a7a7;
+}
+
+.cost{
+	height:40px;
+	margin-right:20px;
+}
+
+.cost-num{
+	color:#ff3131;
+}
+.cost-amount{
+	color:#ff3131;
+	font-size:28px;
+	font-weight: 700;
+}
+
+.cart .placeorder{
+	height:38px;
+	border:1px solid #000;
+	background:#313131;
+}
+
+.cart-img{
+	position:absolute;
+	left:10px;
+	bottom:3px;
+	width: 50px;
+	height:50px;
+	padding-top:5px;
+	border-radius:50px;
+	line-height:50px;
+	background:#ffd161;
+	font-size:30px;
+	text-align:center;
+}
+
+.placeorder button{
+	height:30px;
+	width:100px;
+	margin-top:3px;
+	margin-right:5px;
+	border:0;
+	border-radius:2px;
+	background:#ffd161;
+	font-size:14px;
+	font-weight:800;
+}

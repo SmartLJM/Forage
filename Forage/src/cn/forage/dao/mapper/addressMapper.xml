@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--这块等于dao接口的实现  namespace必须和接口的类路径一样-->
+<mapper namespace="cn.forage.dao.AddressDao">
+
+    <resultMap id="BaseResultMap" type="cn.forage.model.Address" >
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="phoneNum" property="phoneNum"  jdbcType="CHAR"/>
+        <result column="location" property="location"  jdbcType="VARCHAR"/>
+        <result column="userId" property="userId"  jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="getAllAddr" parameterType="int"  resultMap="BaseResultMap">
+        SELECT * from address where userId=#{userId}
+    </select>
+
+    <!-->增加address<-->
+    <insert id="addOne" parameterType="User" keyProperty="id">
+        INSERT  into address(phoneNum,location,name)values(#{phoneNum},#{location},#{name})
+    </insert>
+
+    <!-->根据地址的id以及用户id删除address<-->
+    <delete id="deleteOne" >
+        DELETE  from address where id=#{id} and userId=#{userId}
+    </delete>
+
+    <!-->根据用户id以及地址的id修改address属性<-->
+    <update id="updateOne" parameterType="User">
+        update user set name=#{name},phoneNum=#{phoneNum},location=#{location} where userid=#{userId} and id=#{id}
+    </update>
+</mapper>

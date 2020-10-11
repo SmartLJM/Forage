@@ -1,0 +1,124 @@
+.orders-wrap{
+	background: #fff;
+}
+
+.order-menu{
+	width:150px;
+	background:#fff;
+	padding-top:20px;
+	zoom:1;
+}
+
+.order-menu .item{
+	height:50px;
+	width:100%;
+	padding-left:20px;
+	line-height:50px;
+	font-size:16px;
+	color:#615d5d;
+}
+
+.order-menu .active-item{
+	background: #f9f9f9;
+}
+
+.order-menu .item .glyphicon{
+	margin-right:5px;
+}
+
+.order-area{
+	min-height: 200px;
+	padding-bottom: 50px;
+	margin-left: 150px;
+	background:#fff;
+	border-left: 15px solid #f5f5f5;
+}
+
+.orders-head{
+	height:50px;
+	line-height: 50px;
+	border-bottom: 1px solid #dcdcdc;
+	text-align:center;
+}
+
+.title-contain{
+	padding-left: 20px;
+	margin-right: 20px;
+}
+
+.title-contain, .order-contain{
+	width: 400px;
+}
+
+.title-phone, .order-phone{
+	width: 120px;
+}
+
+.title-cost, .order-cost{
+	width:50px;
+}
+
+.title-operate, .order-operate{
+	width: 200px;
+}
+
+.order-item-wrap{
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:15px;
+}
+
+.order-item-wrap:hover{
+	background: #f9f9f9;
+}
+
+.order-item{
+	height:90px;
+	border-bottom: 1px dashed #bbbbbb;
+}
+
+.order-contain, .order-phone, .order-cost, .order-operate{
+	float:left;
+	height:60px;
+}
+
+.order-phone, .order-cost, .order-operate{
+	padding-top:21px;
+	text-align:center;
+}
+
+.food-img{
+	max-width: 93px;
+	max-height: 70px;
+	float: left;
+}
+
+.food-img img{
+	max-width: 93px;
+	max-height: 70px;
+	float: left;
+}
+
+.food-detial{
+	margin-left:110px;
+	padding-top: 10px;
+}
+
+.food-detial a{
+	display:block;
+	margin-bottom:4px;
+	font-size:14px;
+	font-weight:600;
+}
+
+.food-detial p{
+	font-size:12px;
+	color:#9c9c9c;
+}
+
+
+.order-item .order-operate button{
+	margin-left:20px;
+	border:1px solid #fdb613;
+	background:#f7b828;
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--这块等于dao接口的实现  namespace必须和接口的类路径一样-->
+<mapper namespace="cn.forage.dao.RestaurantDao">
+
+
+    <resultMap id="BaseResultMap" type="cn.forage.model.Restaurant">
+        <id column="id" property="id"  jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="phoneNum" property="phoneNum"  jdbcType="CHAR"/>
+        <result column="location" property="location"  jdbcType="VARCHAR"/>
+        <result column="createdDate" property="createdDate"  jdbcType="DATE"/>
+        <result column="restaurantImg" property="restaurantImg"  jdbcType="VARCHAR"/>
+        <result column="state" property="state"  jdbcType="VARCHAR"/>
+
+       <association property="owner" javaType="cn.forage.model.User" >
+           <id column="user_id" property="id"  jdbcType="INTEGER"/>
+           <result column="user_name" property="name" jdbcType="VARCHAR"/>
+           <result column="user_phoneNum" property="phoneNum"  jdbcType="CHAR"/>
+           <result column="user_password" property="password" jdbcType="VARCHAR"/>
+        </association>
+
+    </resultMap>
+
+
+    <!-- findById必须和接口中的方法名一样  返回一个User  就是刚才的别名  如果不弄别名要连类路径一起写 麻烦-->
+    <select id="getOne" parameterType="int" resultMap="BaseResultMap">
+        select rest.* ,u.id as user_id,u.name as user_name,u.phoneNum as user_phoneNum,u.password as user_password from restaurant rest,user u where u.id=rest.owner and rest.id=#{id}
+    </select>
+
+    <select id="getOneRestaurantByphoneNum" parameterType="String" resultMap="BaseResultMap">
+        select rest.* ,u.id as user_id,u.name as user_name,u.phoneNum as user_phoneNum,u.password as user_password from restaurant rest,user u where rest.owner=u.id and rest.phoneNum=#{phoneNum}
+    </select>
+
+
+    <select id="getAll" resultMap="BaseResultMap">
+        select rest.* ,u.id as user_id,u.name as user_name,u.phoneNum as user_phoneNum,u.password as user_password from restaurant rest,user u where rest.owner=u.id
+    </select>
+
+    <!-->增加user<-->
+    <insert id="addOne"  parameterType="Restaurant">
+        INSERT  into restaurant(name,owner,phoneNum,location,createdDate,restaurantImg,state)values(#{name},#{owner.id},#{phoneNum},#{location},#{createdDate},#{restaurantImg},#{state})
+    </insert>
+
+    <!-->删除restaur<-->
+    <delete id="deleteOne" parameterType="int">
+        DELETE  from restaurant where id=#{id}
+    </delete>
+
+    <!-->修改restaurant属性<-->
+    <update id="updateOne" parameterType="Restaurant">
+        update restaurant set name=#{name},owner=#{owner.id},phoneNum=#{phoneNum},location=#{location},createdDate=#{createdDate},restaurantImg=#{restaurantImg},state=#{state} where id=#{id}
+    </update>
+</mapper>
