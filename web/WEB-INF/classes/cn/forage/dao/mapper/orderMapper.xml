@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--这块等于dao接口的实现  namespace必须和接口的类路径一样-->
+<mapper namespace="cn.forage.dao.OrderDao">
+
+    <resultMap id="BaseResultMap" type="cn.forage.model.Order" >
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="code" property="code"  jdbcType="INTEGER"/>
+        <result column="userId" property="userId"  jdbcType="INTEGER"/>
+        <result column="restaurantId" property="restaurantId" jdbcType="INTEGER"/>
+        <result column="address" property="address" jdbcType="INTEGER"/>
+        <result column="state" property="state" jdbcType="VARCHAR"/>
+        <result column="createtime" property="createtime" jdbcType="DATE"/>
+    </resultMap>
+
+    <resultMap id="FoodsBaseResultMap" type="cn.forage.model.FoodItem" >
+        <id column="id" property="id"  jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="price" property="price"  jdbcType="FLOAT"/>
+        <result column="unit" property="unit" jdbcType="VARCHAR"/>
+        <result column="picture" property="picture" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-->
+    根据userId与restaurantId获得订单里面的东西
+    <-->
+    <!-- findById必须和接口中的方法名一样  返回一个User  就是刚才的别名  如果不弄别名要连类路径一起写 麻烦-->
+    <select id="getByRestaurantId" parameterType="int" resultMap="BaseResultMap">
+        select * from `order` where id=#{restaurantId} ORDER BY state DESC
+    </select>
+
+    <select id="getOne" parameterType="int" resultMap="BaseResultMap">
+        select* from `order` where id=#{orderId}
+    </select>
+
+    <select id="getTotal" parameterType="int" resultType="FLOAT">
+        SELECT SUM(o_f.num * f.price) from order_food o_f,food f where o_f.orderId=#{orderId} and o_f.foodId=f.id
+    </select>
+
+    <select id="getAll" resultMap="BaseResultMap">
+        select * from `order` where userId=#{userId}
+    </select>
+
+
+    <!-->订单<-->
+    <insert id="insertOne" parameterType="Order">
+        INSERT  into `order`(code,userId,restaurantId,address,createTime)values(#{code},#{userId},#{restaurantId},#{address},#{createTime})
+    </insert>
+
+    <!-->删除订单<-->
+    <delete id="deleteOne" parameterType="int">
+        DELETE  from `order` where id=#{id}
+    </delete>
+
+    <!-->修改订单属性<-->
+    <update id="updateOne" parameterType="Order">
+        UPDATE  `order` set code=#{code},userId=#{userId},restaurantId=#{restaurantId},address=#{address},createTime=#{createTime},finishTime=#{finishTime}
+    </update>
+
+    <!-->分页<-->
+    <select id="getAmount" parameterType="int" resultType="int">
+        select ifnull((select count(* )from `order` where id=#{restaurantId}),0)
+    </select>
+
+    <select id="getFirstPage" resultMap="BaseResultMap">
+        select* from `order` where restaurantId=#{id} ORDER BY state DESC limit #{offset},#{pageSize}
+    </select>
+
+    <select id="getLastPage" resultMap="BaseResultMap">
+        select* from `order` where restaurantId=#{id} ORDER BY state DESC limit #{offset},#{pageSize}
+    </select>
+
+    <select id="getOnePage" resultMap="BaseResultMap">
+        select* from `order` where restaurantId =#{id} ORDER BY state DESC limit #{offset},#{pageSize}
+    </select>
+
+    <insert id="addFood2Order" >
+        insert into order_food(orderId,foodId,num)values(#{orderId},#{foodId},#{num});
+    </insert>
+
+</mapper>

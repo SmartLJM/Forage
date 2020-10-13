@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--这块等于dao接口的实现  namespace必须和接口的类路径一样-->
+<mapper namespace="cn.forage.dao.UserDao">
+
+
+    <resultMap id="UserBaseResultMap" type="cn.forage.model.User" >
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="phoneNum" property="phoneNum"  jdbcType="CHAR"/>
+        <result column="id" property="id"  jdbcType="INTEGER"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+
+    <!-->判断用户是否同时是商家用户<-->
+    <select id="hasRestaurant" parameterType="int" resultType="int">
+        select if((SELECT r.owner FROM `restaurant` r,`user`u WHERE r.owner=u.id and u.id=#{id}),1,0)
+    </select>
+
+    <!-- findById必须和接口中的方法名一样  返回一个User  就是刚才的别名  如果不弄别名要连类路径一起写 麻烦-->
+    <select id="getOne" parameterType="int" resultMap="UserBaseResultMap">
+        select* from user where id=#{id}
+    </select>
+
+    <select id="getUser" resultMap="UserBaseResultMap">
+        select* from user where name=#{userName} and password=#{password}
+    </select>
+
+
+    <select id="getUserByphoneNum" parameterType="String" resultMap="UserBaseResultMap">
+        select* from user where phoneNum=#{phoneNum}
+    </select>
+
+    <select id="getAll" resultMap="UserBaseResultMap">
+        SELECT * from user
+    </select>
+
+    <!-->增加user<-->
+    <insert id="addOne" parameterType="User" keyProperty="id">
+        INSERT  into user(phoneNum,password,name)values(#{phoneNum},#{password},#{name})
+    </insert>
+
+    <!-->删除user<-->
+    <delete id="deleteOne" parameterType="int">
+        DELETE  from user where id=#{id}
+    </delete>
+
+    <!-->修改user属性<-->
+    <update id="updateOne" parameterType="User">
+    update user set name=#{name},password=#{password},phoneNum=#{phoneNum} where id=#{id}
+    </update>
+
+</mapper>

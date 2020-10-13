@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--这块等于dao接口的实现  namespace必须和接口的类路径一样-->
+<mapper namespace="cn.forage.dao.FoodDao">
+
+    <!-->
+    private String name;
+    private float price;
+    private String unit;
+    //    图片的url
+    private String picture;
+    //    店家对该食品的归类
+    private String type;
+    <-->
+
+    <resultMap id="BaseResultMap" type="cn.forage.model.FoodItem" >
+        <id column="id" property="id"  jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="price" property="price"  jdbcType="FLOAT"/>
+        <result column="unit" property="unit" jdbcType="VARCHAR"/>
+        <result column="picture" property="picture" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+
+    <!-->根据餐厅名称来寻找餐厅的所有食品<-->
+    <select id="getFoodsByRestName" parameterType="String" resultMap="BaseResultMap">
+        select f.* from food f,restaurant rest where rest.name=#{name} and rest.id=f.restaurantId
+    </select>
+
+    <!-->得到每一份商品的月售份额<-->
+    <select id="getSellNum" resultType="int">
+        select ifnull((select sum(o_f.num) from `order` o, `order_food` o_f where o_f.foodId=#{foodId} and o.id=o_f.orderId
+        and o.createTime between #{startTime} AND #{finishTime}),0)
+    </select>
+
+    <select id="getAllFoods" resultMap="BaseResultMap">
+        SELECT * from food where restaurantId=#{restaurantId}
+    </select>
+
+    <!-->增加food<-->
+    <insert id="addOneFood" parameterType="FoodItem" keyProperty="id">
+        INSERT  into food(name,price,unit,picture,restaurantId,type)values(#{name},#{price},#{unit},#{picture},#{restaurantId},#{type})
+    </insert>
+
+    <!-->删除food<-->
+    <delete id="deleteOneFood">
+        DELETE  from food where id=#{id}
+    </delete>
+
+    <!-->修改food属性<-->
+    <update id="updateOneFood" parameterType="FoodItem">
+        UPDATE  food set name=#{name},price=#{price},unit=#{unit},picture=#{picture},type=#{type}where restaurantId=#{restaurantId} and id=#{id}
+    </update>
+
+
+    <!-->关于翻页的一些功能<-->
+    <select id="getAmount" resultType="int">
+        select ifnull((SELECT count(* )from food where restaurantId=#{restaurantId}),0)
+    </select>
+
+    <select id="getFirstPage" resultMap="BaseResultMap">
+        SELECT *from food where restaurantId=#{id} order by id limit #{offset},#{pageSize}
+    </select>
+
+    <select id="getLastPage" resultMap="BaseResultMap">
+        SELECT *from food where restaurantId=#{id} order by id limit #{offset},#{pageSize}
+    </select>
+
+    <select id="getOnePage" resultMap="BaseResultMap">
+        SELECT *from food where restaurantId=#{id} order by id limit #{offset},#{pageSize}
+    </select>
+
+
+
+
+</mapper>
